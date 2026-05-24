@@ -1,0 +1,6 @@
+#!/bin/sh
+set -o errexit
+set -o nounset
+
+uv sync --frozen
+uv run watchfiles --filter default "celery -A config.celery_app worker -l INFO" /app/lukasz_pudlo /app/config

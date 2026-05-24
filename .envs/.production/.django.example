@@ -1,0 +1,13 @@
+DJANGO_SETTINGS_MODULE=config.settings.production
+DJANGO_SECRET_KEY=change-me
+DJANGO_DEBUG=False
+DJANGO_ALLOWED_HOSTS=example.com,localhost,127.0.0.1
+DJANGO_CSRF_TRUSTED_ORIGINS=https://example.com
+DJANGO_SECURE_SSL_REDIRECT=True
+DJANGO_SECURE_HSTS_SECONDS=60
+DATABASE_URL=postgres://lukasz_pudlo_user:change-me@db:5432/lukasz_pudlo
+REDIS_URL=redis://redis:6379/0
+POSTMARK_SERVER_TOKEN=
+DJANGO_DEFAULT_FROM_EMAIL=Lukasz Pudlo <noreply@example.com>
+SENTRY_DSN=
+SENTRY_ENVIRONMENT=production

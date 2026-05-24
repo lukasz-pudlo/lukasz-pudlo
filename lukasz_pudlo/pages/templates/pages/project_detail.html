@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} — Case {{ case_num|stringformat:"02d" }} — Portfolio — Lukasz Pudlo{% endblock title %}
+
+{% block subnav %}
+  {% include "pages/portfolio_tabs.html" %}
+{% endblock subnav %}
+
+{% block content %}
+  <article class="article" aria-labelledby="case-title">
+    <header class="article-header stagger">
+      <div>
+        <p class="eyebrow">Case {{ case_num|stringformat:"02d" }} &mdash; Portfolio</p>
+        <span class="red-bar" aria-hidden="true"></span>
+        <h1 id="case-title" class="article-header__title">{{ project.title }}.</h1>
+        <p class="article-header__strap">{{ project.strapline }}</p>
+      </div>
+
+      <aside class="meta-block" aria-label="Case meta">
+        <div class="meta-block__head">
+          <span>SYS:LP &middot;&middot; {{ project.slug|upper }}</span>
+          <span class="led">Ready</span>
+        </div>
+        <dl>
+          <dt>File</dt>
+          <dd>Case {{ case_num|stringformat:"02d" }}</dd>
+          <dt>Role</dt>
+          <dd>{{ project.role }}</dd>
+          <dt>Embed</dt>
+          <dd>{{ project.embed_url }}</dd>
+        </dl>
+        <div class="meta-block__ctas">
+          <a href="{{ project.embed_url }}" target="_blank" rel="noopener noreferrer">&rsaquo; OPEN LIVE SITE</a>
+        </div>
+      </aside>
+    </header>
+
+    <figure class="figure-print" aria-label="Live embed of {{ project.title }}">
+      <figcaption class="figure-print__caption-top">
+        <span>Live exhibit &middot; {{ project.embed_url }}</span>
+        <button class="reload" type="button" _="on click set #project-exhibit.src to #project-exhibit.src" aria-label="Reload exhibit">
+          &#8634; Reload
+        </button>
+      </figcaption>
+
+      <div class="figure-print__frame">
+        <iframe
+          id="project-exhibit"
+          title="Embedded {{ project.title }} website"
+          src="{{ project.embed_url }}"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          sandbox="allow-forms allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+        ></iframe>
+      </div>
+
+      <div class="figure-print__caption">
+        <span class="figure-print__label">Fig. {{ case_num|stringformat:"02d" }}</span>
+        <em>{{ project.title }}, running in your browser. Use it as you would any website.</em>
+      </div>
+
+      <p class="fallback-note">
+        If the exhibit refuses to load, the source site is blocking embeds &mdash; open the live site from the meta panel above.
+      </p>
+    </figure>
+
+    <section class="body-section">
+      <header class="body-section__head">
+        <span><span class="num">&sect; 01</span> &nbsp; Notes from the build</span>
+        <span>Case {{ case_num|stringformat:"02d" }}</span>
+      </header>
+      <h2 class="body-section__title">{{ project.title }}, in brief.</h2>
+      <div class="copy">
+        <p>{{ project.summary }}</p>
+        <p><strong>Role &mdash;</strong> {{ project.role }}.</p>
+      </div>
+    </section>
+
+    <footer class="section-runner" aria-label="Section runner">
+      <span>End of case {{ case_num|stringformat:"02d" }}</span>
+      {% if next_project %}
+        <a class="section-runner__next" href="{% url 'pages:project_detail' next_project.slug %}">
+          Next &rsaquo; {{ next_project.title }}
+        </a>
+      {% else %}
+        <a class="section-runner__next" href="{% url 'pages:portfolio' %}">
+          Back to portfolio index &rsaquo;
+        </a>
+      {% endif %}
+    </footer>
+  </article>
+{% endblock content %}

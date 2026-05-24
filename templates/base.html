@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+<html lang="en-GB" data-theme="computerwelt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <meta name="theme-color" content="#ECE3CC">
+    <title>{% block title %}Lukasz Pudlo{% endblock title %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;500;800&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap">
+
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+    <script src="{% static 'vendors/htmx/htmx.min.js' %}" defer></script>
+    <script src="{% static 'vendors/hyperscript/_hyperscript.min.js' %}" defer></script>
+  </head>
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    <div class="magazine-shell">
+      <header class="masthead" aria-label="Masthead">
+        <div class="masthead__top">
+          <span>COMPUTERWELT</span>
+          <span>Issue 01</span>
+          <span>Studio of Lukasz Pudlo</span>
+          <span>London &middot; MMXXVI</span>
+          <span class="masthead__top-right">On press</span>
+        </div>
+        <div class="masthead__row">
+          <a class="masthead__brand" href="{% url 'pages:home' %}" aria-label="Lukasz Pudlo — home">
+            <span class="masthead__brand-glyph" aria-hidden="true">LP</span>
+            <span class="masthead__brand-name">Lukasz Pudlo</span>
+          </a>
+          <nav class="masthead__nav" aria-label="Primary">
+            <a href="{% url 'pages:portfolio' %}"{% if request.resolver_match.url_name == "portfolio" or request.resolver_match.url_name == "project_detail" %} aria-current="page"{% endif %}>Portfolio</a>
+            <a href="{% url 'pages:contact' %}"{% if request.resolver_match.url_name == "contact" %} aria-current="page"{% endif %}>Contact</a>
+            <a href="{% url 'pages:about' %}"{% if request.resolver_match.url_name == "about" %} aria-current="page"{% endif %}>About</a>
+          </nav>
+        </div>
+      </header>
+
+      {% block subnav %}{% endblock subnav %}
+
+      <main class="page-shell" id="content">
+        {% block content %}{% endblock content %}
+      </main>
+
+      <footer class="colophon" aria-label="Colophon">
+        <span class="colophon__left">Set in Hanken Grotesk &amp; IBM Plex Mono</span>
+        <span class="colophon__centre">&middot; END OF ISSUE &middot;</span>
+        <span class="colophon__right">&copy; {% now "Y" %} Lukasz Pudlo &middot; Built with Django</span>
+      </footer>
+    </div>
+  </body>
+</html>

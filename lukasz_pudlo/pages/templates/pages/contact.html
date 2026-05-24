@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Contact — Lukasz Pudlo{% endblock title %}
+
+{% block content %}
+  <section class="spread" aria-labelledby="contact-headline">
+    <header class="spread-header stagger">
+      <div class="spread-header__top">
+        <p class="eyebrow">Contact</p>
+        <p class="folio">
+          <span class="folio__num">P.12</span>
+          <span class="folio__sep">/</span>
+          <span>Get in touch</span>
+        </p>
+      </div>
+      <span class="red-bar" aria-hidden="true"></span>
+      <h1 id="contact-headline" class="headline">Brief, a question, or a coffee.</h1>
+      <p class="standfirst standfirst--wide">
+        Email is the simplest route. Tell me a little about what you are building, the audience, and what a good outcome would look like. A reply usually arrives the next working day.
+      </p>
+    </header>
+
+    <div class="contact-card">
+      <div>
+        <p class="eyebrow">Direct line</p>
+        <p class="copy" style="margin-top: 0.75rem; max-width: 48ch;">
+          For project enquiries, collaborations, and the occasional "could this work?" hypothetical &mdash; the inbox is open.
+        </p>
+        <p style="margin-top: 1.75rem;">
+          <a class="button button--large" href="mailto:hello@lukaszpudlo.com">hello@lukaszpudlo.com</a>
+        </p>
+      </div>
+
+      <dl class="contact-meta">
+        <div>
+          <dt>Based</dt>
+          <dd>London, United Kingdom</dd>
+        </div>
+        <div>
+          <dt>Hours</dt>
+          <dd>Mon &ndash; Fri &middot; Reply within 1 working day</dd>
+        </div>
+        <div>
+          <dt>Availability</dt>
+          <dd>Currently taking briefs for the next quarter</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+{% endblock content %}

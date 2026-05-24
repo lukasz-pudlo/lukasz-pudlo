@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}About — Lukasz Pudlo{% endblock title %}
+
+{% block content %}
+  <section class="spread" aria-labelledby="about-headline">
+    <header class="spread-header stagger">
+      <div class="spread-header__top">
+        <p class="eyebrow">About</p>
+        <p class="folio">
+          <span class="folio__num">P.08</span>
+          <span class="folio__sep">/</span>
+          <span>The builder</span>
+        </p>
+      </div>
+      <span class="red-bar" aria-hidden="true"></span>
+      <h1 id="about-headline" class="headline">A small studio for practical, server-rendered web work.</h1>
+      <p class="standfirst standfirst--wide">
+        Lukasz Pudlo (London) designs and builds websites and small web applications. The work tends to be Django on the backend, server-rendered HTML on the front, and deployment kept deliberately small enough to maintain in a sitting.
+      </p>
+    </header>
+
+    <div class="about-layout">
+      <div class="copy">
+        <p>
+          The studio sits between architecture and interface. The aim is software that does the job, explains itself, and can be operated by real people without a runbook.
+        </p>
+        <p>
+          The bias is to ship clean, to keep the moving parts few, and to choose tools that will still be approachable in five years. Server-rendered pages with a small dusting of HTMX usually beat a single-page app for the kind of work clients actually pay for &mdash; booking, payments, content, member areas.
+        </p>
+        <p>
+          The site itself follows that principle: a Django project, a single hand-written stylesheet, websites embedded as live exhibits, and not a megabyte of JavaScript framework in sight.
+        </p>
+        <p>
+          If you are reading this because you need a website that works, sends the email it promised, and does not invent a new way to break, that is the kind of work this studio is for.
+        </p>
+      </div>
+
+      <aside class="about-sidebar" aria-label="Services and tooling">
+        <div class="about-mark" aria-hidden="true">
+          <span class="about-mark__initials">LP</span>
+        </div>
+        <h3>Services</h3>
+        <ul>
+          <li><span>Web applications</span><span>Django</span></li>
+          <li><span>Payments</span><span>Stripe</span></li>
+          <li><span>Marketing sites</span><span>Server-rendered</span></li>
+          <li><span>Deployment</span><span>Hetzner / Docker</span></li>
+          <li><span>Maintenance</span><span>Long-running</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+{% endblock content %}

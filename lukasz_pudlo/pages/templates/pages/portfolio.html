@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio — Lukasz Pudlo{% endblock title %}
+
+{% block subnav %}
+  {% include "pages/portfolio_tabs.html" %}
+{% endblock subnav %}
+
+{% block content %}
+  <section class="spread" aria-labelledby="portfolio-headline">
+    <header class="spread-header stagger">
+      <div class="spread-header__top">
+        <p class="eyebrow">Portfolio</p>
+        <p class="folio">
+          <span class="folio__num">P.04</span>
+          <span class="folio__sep">/</span>
+          <span>Live exhibits</span>
+        </p>
+      </div>
+      <span class="red-bar" aria-hidden="true"></span>
+      <h1 id="portfolio-headline" class="headline">Working software you can&nbsp;use.</h1>
+      <p class="standfirst standfirst--wide">
+        Each project below is embedded as a live page inside the magazine. Use it like any other website — click around, fill the form, follow the flow. When a site refuses to embed, a clear note and an external link take you to the real thing.
+      </p>
+    </header>
+
+    <ol class="index-grid" reversed>
+      {% for project in projects %}
+        <li class="story-card">
+          <a class="story-card__thumb" href="{% url 'pages:project_detail' project.slug %}" aria-label="Open the {{ project.title }} case study">
+            <span class="story-card__thumb-inner">
+              <span class="story-card__thumb-glyph">{{ project.title }}</span>
+              <span class="story-card__thumb-tag">Case {{ forloop.counter|stringformat:"02d" }} &middot; Live embed</span>
+            </span>
+          </a>
+          <div class="story-card__body">
+            <p class="story-card__meta">
+              <span>Case {{ forloop.counter|stringformat:"02d" }}</span>
+              <span>{{ project.role|truncatewords:2 }}</span>
+            </p>
+            <h2 class="story-card__title">{{ project.title }}</h2>
+            <p class="story-card__strap">{{ project.strapline }}</p>
+            <a class="link story-card__cta" href="{% url 'pages:project_detail' project.slug %}">Read case {{ forloop.counter|stringformat:"02d" }}</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+{% endblock content %}

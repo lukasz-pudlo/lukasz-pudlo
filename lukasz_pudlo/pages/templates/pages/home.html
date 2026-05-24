@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Lukasz Pudlo — Studio for web work{% endblock title %}
+
+{% block content %}
+  <section class="cover" aria-labelledby="cover-headline">
+    <div class="cover__lead stagger">
+      <p class="eyebrow">Cover — Issue 01</p>
+      <h1 id="cover-headline" class="cover__headline">
+        <span>Programming</span>
+        <span class="accent">your future,</span>
+        <span>page by page.</span>
+      </h1>
+      <p class="standfirst standfirst--wide">
+        Lukasz Pudlo designs and builds practical, server-rendered websites. This site is a small magazine where each project is a live exhibit — open the page, use the website inside it.
+      </p>
+      <div class="cover__ctas">
+        <a class="button" href="{% url 'pages:portfolio' %}">Read the portfolio</a>
+        <a class="button button--ghost" href="{% url 'pages:contact' %}">Hire / collaborate</a>
+      </div>
+    </div>
+
+    <aside class="cover__sidebar" aria-label="Editor's note">
+      <span class="editors-mark">Editor's note &middot; P.02</span>
+      <h2>The future arrived. We forgot to enjoy it.</h2>
+      <p class="copy">
+        These pages take the format of a 1981 computer magazine seriously: clean typography, plain words, a slight phosphor green where the machines used to live, and live websites you can actually run.
+      </p>
+      <p class="copy">
+        Pick a case. Use the embed. Decide if I might be useful for what you are building.
+      </p>
+    </aside>
+  </section>
+
+  <section class="contents" aria-labelledby="contents-title">
+    <h2 id="contents-title" class="contents__title">In this issue</h2>
+    <ol class="contents__list">
+      <li>
+        <a href="{% url 'pages:portfolio' %}">
+          <span class="contents__num">P.04</span>
+          <span class="contents__label">Portfolio</span>
+          <span class="contents__desc">Live exhibits &middot; {{ projects|length }} case{{ projects|length|pluralize }}</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'pages:about' %}">
+          <span class="contents__num">P.08</span>
+          <span class="contents__label">About</span>
+          <span class="contents__desc">Approach &middot; tools &middot; services</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'pages:contact' %}">
+          <span class="contents__num">P.12</span>
+          <span class="contents__label">Contact</span>
+          <span class="contents__desc">Get in touch &middot; brief / hire</span>
+        </a>
+      </li>
+    </ol>
+  </section>
+{% endblock content %}
