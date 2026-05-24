@@ -15,6 +15,10 @@ uv sync
 docker compose up
 ```
 
+The local portfolio is served at `http://localhost:8010/`. Target Django projects
+that are embedded in portfolio case-study pages should allow iframe ancestors
+`http://localhost:8010` and `http://127.0.0.1:8010` during local development.
+
 Run tests:
 
 ```bash
