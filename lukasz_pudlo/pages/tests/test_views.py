@@ -37,8 +37,10 @@ def test_portfolio_lists_projects_as_linked_cards(client):
     assert response.status_code == HTTPStatus.OK
     assert b"Acorn Pay" in response.content
     assert b"South by Five" in response.content
+    assert b"Creek Crosby" in response.content
     assert b'href="/portfolio/acorn-pay/"' in response.content
     assert b'href="/portfolio/south-by-five/"' in response.content
+    assert b'href="/portfolio/creek-crosby/"' in response.content
     assert b"story-card" in response.content
 
 

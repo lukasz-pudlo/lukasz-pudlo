@@ -24,6 +24,17 @@ PROJECTS = [
         ),
         "role": "Django implementation, deployment, content structure",
     },
+    {
+        "slug": "creek-crosby",
+        "title": "Creek Crosby",
+        "strapline": "Band website with gigs, media, and merchandise for a rock and roll outfit.",
+        "embed_url": "https://creekcrosby.co.uk/",
+        "summary": (
+            "A website for Creek Crosby, a rock and roll band, covering live dates, "
+            "band profiles, music and video, merchandise, and booking."
+        ),
+        "role": "Django implementation, deployment, visual design",
+    },
 ]
 
 
