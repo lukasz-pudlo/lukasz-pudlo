@@ -24,15 +24,22 @@
       </p>
     </header>
 
-    <ol class="index-grid" reversed>
+    <ol class="index-grid">
       {% for project in projects %}
         <li class="story-card">
-          <a class="story-card__thumb" href="{% url 'pages:project_detail' project.slug %}" aria-label="Open the {{ project.title }} case study">
+          <div class="story-card__thumb" aria-label="{{ project.title }} main page preview">
             <span class="story-card__thumb-inner">
-              <span class="story-card__thumb-glyph">{{ project.title }}</span>
-              <span class="story-card__thumb-tag">Case {{ forloop.counter|stringformat:"02d" }} &middot; Live embed</span>
+              <iframe
+                class="story-card__frame"
+                title="{{ project.title }} main page"
+                src="{{ project.embed_url }}"
+                loading="lazy"
+                sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                referrerpolicy="strict-origin-when-cross-origin"
+                tabindex="-1"
+              ></iframe>
             </span>
-          </a>
+          </div>
           <div class="story-card__body">
             <p class="story-card__meta">
               <span>Case {{ forloop.counter|stringformat:"02d" }}</span>
