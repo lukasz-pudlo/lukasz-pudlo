@@ -60,6 +60,9 @@
         <span class="figure-print__label">Fig. {{ case_num|stringformat:"02d" }}</span>
         <em>{{ project.title }}, running in your browser.</em>
       </div>
+      {% if project.embed_note %}
+        <p class="figure-print__note">{{ project.embed_note }}</p>
+      {% endif %}
     </figure>
 
     <section class="body-section">
