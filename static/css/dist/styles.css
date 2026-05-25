@@ -1033,13 +1033,14 @@ button {
   box-shadow:
     10px 10px 0 -1px var(--ink),
     10px 10px 0 0 var(--paper-edge);
+  overflow: hidden;
 }
 
 .figure-print__caption-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   padding: 0.3rem 0.4rem 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -1047,9 +1048,19 @@ button {
   letter-spacing: 0.2em;
   color: var(--ink-soft);
   border-bottom: var(--rule);
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.figure-print__caption-top > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .figure-print__caption-top .reload {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
