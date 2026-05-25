@@ -19,11 +19,13 @@
       <aside class="meta-block" aria-label="Case meta">
         <div class="meta-block__head">
           <span>SYS:LP &middot;&middot; {{ project.slug|upper }}</span>
-          <span class="led">Ready</span>
+          <span class="led">{{ project.status|default:"Ready" }}</span>
         </div>
         <dl>
           <dt>File</dt>
           <dd>Case {{ case_num|stringformat:"02d" }}</dd>
+          <dt>Status</dt>
+          <dd>{{ project.status|default:"Ready" }}</dd>
           <dt>Role</dt>
           <dd>{{ project.role }}</dd>
           <dt>Embed</dt>
@@ -60,7 +62,11 @@
       </div>
 
       <p class="fallback-note">
-        If the exhibit refuses to load, the source site is blocking embeds &mdash; open the live site from the meta panel above.
+        {% if project.embed_note %}
+          {{ project.embed_note }}
+        {% else %}
+          If the exhibit refuses to load, the source site is blocking embeds &mdash; open the live site from the meta panel above.
+        {% endif %}
       </p>
     </figure>
 

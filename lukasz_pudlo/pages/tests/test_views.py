@@ -56,6 +56,15 @@ def test_project_detail_page_has_live_embed_and_case_tabs(client):
     assert b"Reload" in response.content
 
 
+def test_acorn_pay_case_marks_work_in_progress_and_explains_auth_limit(client):
+    response = client.get(reverse("pages:project_detail", kwargs={"slug": "acorn-pay"}))
+
+    assert response.status_code == HTTPStatus.OK
+    assert b"Work in progress" in response.content
+    assert b"shows the Acorn Pay main page" in response.content
+    assert b"open the live site directly to create an account or sign in" in response.content
+
+
 def test_unknown_project_returns_404(client):
     response = client.get(reverse("pages:project_detail", kwargs={"slug": "unknown"}))
 
