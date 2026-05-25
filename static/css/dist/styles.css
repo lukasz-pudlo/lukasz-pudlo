@@ -219,14 +219,15 @@ button {
 .masthead__brand-glyph {
   display: inline-grid;
   place-items: center;
-  width: 1em;
+  width: 1.5em;
   height: 1em;
+  padding-inline: 0.15em;
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-mono);
-  font-size: 0.42em;
+  font-size: 0.38em;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
   line-height: 1;
 }
 
