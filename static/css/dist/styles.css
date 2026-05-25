@@ -184,21 +184,6 @@ button {
   color: var(--red);
 }
 
-.masthead__top .masthead__top-right {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.masthead__top .masthead__top-right::before {
-  display: inline-block;
-  width: 0.4rem;
-  height: 0.4rem;
-  background: var(--red);
-  content: "";
-  border-radius: 50%;
-}
-
 .masthead__row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -216,21 +201,6 @@ button {
   font-size: clamp(2rem, 5.5vw, 3.6rem);
   letter-spacing: -0.04em;
   line-height: 0.9;
-}
-
-.masthead__brand-glyph {
-  display: inline-grid;
-  place-items: center;
-  width: 1.5em;
-  height: 1em;
-  padding-inline: 0.15em;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-mono);
-  font-size: 0.38em;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1;
 }
 
 .masthead__brand-name {
@@ -572,6 +542,8 @@ button {
   border: var(--rule-ink);
   border-top-width: 4px;
   border-top-color: var(--red);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .cover__sidebar h2 {
@@ -675,6 +647,8 @@ button {
   grid-template-columns: 1fr;
   gap: 0.75rem;
   margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .spread-header__top {
@@ -682,6 +656,7 @@ button {
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
 }
 
@@ -904,6 +879,8 @@ button {
   grid-template-columns: 1fr;
   gap: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 880px) {
@@ -1042,6 +1019,8 @@ button {
     10px 10px 0 0 var(--paper-edge);
   width: 100%;
   min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .figure-print__caption-top {
@@ -1150,6 +1129,7 @@ button {
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
+  flex-wrap: wrap;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
   border-bottom: var(--rule-ink);
@@ -1159,6 +1139,8 @@ button {
   letter-spacing: 0.22em;
   color: var(--ink);
   font-weight: 600;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .body-section__head .num {
@@ -1194,6 +1176,8 @@ button {
   padding: 1.25rem 1.4rem 1.4rem;
   background: var(--paper-deep);
   border: var(--rule-ink);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .about-sidebar h3 {
@@ -1277,6 +1261,8 @@ button {
   border-top-width: 6px;
   border-top-color: var(--red);
   position: relative;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .contact-card::before {
@@ -1403,6 +1389,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--ink-soft);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 760px) {
