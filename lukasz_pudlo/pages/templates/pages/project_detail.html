@@ -58,16 +58,8 @@
 
       <div class="figure-print__caption">
         <span class="figure-print__label">Fig. {{ case_num|stringformat:"02d" }}</span>
-        <em>{{ project.title }}, running in your browser. Use it as you would any website.</em>
+        <em>{{ project.title }}, running in your browser.</em>
       </div>
-
-      <p class="fallback-note">
-        {% if project.embed_note %}
-          {{ project.embed_note }}
-        {% else %}
-          If the exhibit refuses to load, the source site is blocking embeds &mdash; open the live site from the meta panel above.
-        {% endif %}
-      </p>
     </figure>
 
     <section class="body-section">
