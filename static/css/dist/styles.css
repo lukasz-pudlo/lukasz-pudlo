@@ -1272,8 +1272,71 @@ button {
   content: "P.12 ▸ FORM";
 }
 
-.contact-card .button--large {
-  align-self: flex-start;
+.contact-email-button {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: 100%;
+}
+
+.contact-email-button__link {
+  border-right: 0;
+}
+
+.contact-email-button__link::after {
+  display: none;
+}
+
+.contact-email-button__copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 3.45rem;
+  padding: 0 0.85rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  border-left-color: color-mix(in srgb, var(--paper) 35%, var(--ink));
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.contact-email-button:hover .contact-email-button__link,
+.contact-email-button:focus-within .contact-email-button__link,
+.contact-email-button__copy:hover,
+.contact-email-button__copy:focus-visible,
+.contact-email-button__copy--done {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--paper);
+}
+
+.contact-email-button__copy:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.contact-email-button__copy:active {
+  transform: translateY(1px);
+}
+
+.contact-email-button__icon {
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: miter;
+}
+
+.contact-email-button__status {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
 }
 
 .contact-meta {

@@ -31,6 +31,19 @@ def test_main_navigation_uses_minimal_labels(client):
     assert b'href="/about/"' in response.content
 
 
+def test_contact_email_button_includes_copy_control(client):
+    response = client.get(reverse("pages:contact"))
+
+    assert response.status_code == HTTPStatus.OK
+    assert b'href="mailto:lukasz.hubert.pudlo@gmail.com"' in response.content
+    assert b'aria-label="Copy email address"' in response.content
+    assert b'data-email="lukasz.hubert.pudlo@gmail.com"' in response.content
+    assert b"navigator.clipboard.writeText" in response.content
+    assert b'id="copy-email-status"' in response.content
+    assert b'aria-live="polite"' in response.content
+    assert b"Copied to clipboard" in response.content
+
+
 def test_portfolio_lists_projects_as_linked_cards(client):
     response = client.get(reverse("pages:portfolio"))
 

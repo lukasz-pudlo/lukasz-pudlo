@@ -26,9 +26,23 @@
         <p class="copy" style="margin-top: 0.75rem; max-width: 48ch;">
           For project enquiries, collaborations, and the occasional "could this work?" hypothetical &mdash; the inbox is open.
         </p>
-        <p style="margin-top: 1.75rem;">
-          <a class="button button--large" href="mailto:lukasz.hubert.pudlo@gmail.com">lukasz.hubert.pudlo@gmail.com</a>
-        </p>
+        <div class="contact-email-button" style="margin-top: 1.75rem;">
+          <a class="button button--large contact-email-button__link" href="mailto:lukasz.hubert.pudlo@gmail.com">lukasz.hubert.pudlo@gmail.com</a>
+          <button
+            class="contact-email-button__copy"
+            type="button"
+            data-email="lukasz.hubert.pudlo@gmail.com"
+            data-copy-email
+            aria-label="Copy email address"
+            title="Copy email address"
+          >
+            <svg class="contact-email-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M8 7h9v12H8z"></path>
+              <path d="M5 4h9v3H8v9H5z"></path>
+            </svg>
+            <span id="copy-email-status" class="contact-email-button__status" aria-live="polite">Copy</span>
+          </button>
+        </div>
       </div>
 
       <dl class="contact-meta">
@@ -47,4 +61,47 @@
       </dl>
     </div>
   </section>
+
+  <script>
+    (() => {
+      const copyButton = document.querySelector("[data-copy-email]");
+      const status = document.querySelector("#copy-email-status");
+
+      if (!copyButton || !status) {
+        return;
+      }
+
+      const copyWithFallback = async (text) => {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.top = "-9999px";
+        document.body.append(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+      };
+
+      copyButton.addEventListener("click", async () => {
+        try {
+          await copyWithFallback(copyButton.dataset.email);
+          status.textContent = "Copied to clipboard";
+          copyButton.classList.add("contact-email-button__copy--done");
+        } catch {
+          status.textContent = "Copy failed";
+        }
+
+        window.setTimeout(() => {
+          status.textContent = "Copy";
+          copyButton.classList.remove("contact-email-button__copy--done");
+        }, 2400);
+      });
+    })();
+  </script>
 {% endblock content %}
