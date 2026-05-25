@@ -797,7 +797,7 @@ button {
 }
 
 .story-card__thumb:hover,
-.story-card__thumb:focus-visible {
+.story-card:focus-within .story-card__thumb {
   transform: translate(-2px, -2px);
   box-shadow:
     8px 8px 0 -1px var(--ink),
@@ -807,6 +807,7 @@ button {
 .story-card__thumb-inner {
   display: grid;
   place-items: center;
+  position: relative;
   aspect-ratio: 16 / 10;
   background:
     repeating-linear-gradient(45deg, rgba(20, 20, 20, 0.06) 0 2px, transparent 2px 7px),
@@ -814,7 +815,16 @@ button {
   border: var(--rule);
   color: var(--ink);
   text-align: center;
-  padding: 1rem;
+  overflow: hidden;
+}
+
+.story-card__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--paper);
+  pointer-events: none;
 }
 
 .story-card__thumb-glyph {
@@ -827,7 +837,13 @@ button {
 }
 
 .story-card__thumb-tag {
-  margin-top: 0.5rem;
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  padding: 0.45rem 0.6rem;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  border: var(--rule);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 600;

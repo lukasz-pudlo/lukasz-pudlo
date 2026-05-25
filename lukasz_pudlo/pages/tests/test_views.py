@@ -35,13 +35,23 @@ def test_portfolio_lists_projects_as_linked_cards(client):
     response = client.get(reverse("pages:portfolio"))
 
     assert response.status_code == HTTPStatus.OK
-    assert b"Acorn Pay" in response.content
-    assert b"South by Five" in response.content
-    assert b"Creek Crosby" in response.content
-    assert b'href="/portfolio/acorn-pay/"' in response.content
-    assert b'href="/portfolio/south-by-five/"' in response.content
-    assert b'href="/portfolio/creek-crosby/"' in response.content
-    assert b"story-card" in response.content
+    content = response.content
+    assert content.index(b"South by Five") < content.index(b"Creek Crosby") < content.index(b"Acorn Pay")
+    assert b'href="/portfolio/south-by-five/"' in content
+    assert b'href="/portfolio/creek-crosby/"' in content
+    assert b'href="/portfolio/acorn-pay/"' in content
+    assert b"story-card" in content
+
+
+def test_portfolio_story_cards_show_project_main_pages(client):
+    response = client.get(reverse("pages:portfolio"))
+
+    assert response.status_code == HTTPStatus.OK
+    assert response.content.count(b"<iframe") == 3
+    assert b'src="https://southbyfive.run/"' in response.content
+    assert b'src="https://creekcrosby.co.uk/"' in response.content
+    assert b'src="https://dev.acornpay.southbyfive.run/"' in response.content
+    assert b'title="South by Five main page"' in response.content
 
 
 def test_project_detail_page_has_live_embed_and_case_tabs(client):

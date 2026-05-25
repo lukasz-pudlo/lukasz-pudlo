@@ -3,23 +3,6 @@ from django.shortcuts import render
 
 PROJECTS = [
     {
-        "slug": "acorn-pay",
-        "title": "Acorn Pay",
-        "strapline": "Work-in-progress race-entry payments, receipts, and operational tooling.",
-        "status": "Work in progress",
-        "embed_url": "https://dev.acornpay.southbyfive.run/",
-        "embed_note": (
-            "The live exhibit shows the Acorn Pay main page inside this case study. "
-            "Account creation and sign-in need third-party cookies that browsers often block inside "
-            "iframes, so open the live site directly to create an account or sign in."
-        ),
-        "summary": (
-            "A work-in-progress Django payment system for a small race organisation, built around "
-            "Stripe Checkout, email receipts, and replay-safe webhooks."
-        ),
-        "role": "Architecture, Django implementation, deployment, payment flows",
-    },
-    {
         "slug": "south-by-five",
         "title": "South by Five",
         "strapline": "A running club website with a practical publishing surface.",
@@ -40,6 +23,23 @@ PROJECTS = [
             "band profiles, music and video, merchandise, and booking."
         ),
         "role": "Django implementation, deployment, visual design",
+    },
+    {
+        "slug": "acorn-pay",
+        "title": "Acorn Pay",
+        "strapline": "Work-in-progress race-entry payments, receipts, and operational tooling.",
+        "status": "Work in progress",
+        "embed_url": "https://dev.acornpay.southbyfive.run/",
+        "embed_note": (
+            "The live exhibit shows the Acorn Pay main page inside this case study. "
+            "Account creation and sign-in need third-party cookies that browsers often block inside "
+            "iframes, so open the live site directly to create an account or sign in."
+        ),
+        "summary": (
+            "A work-in-progress Django payment system for a small race organisation, built around "
+            "Stripe Checkout, email receipts, and replay-safe webhooks."
+        ),
+        "role": "Architecture, Django implementation, deployment, payment flows",
     },
 ]
 
