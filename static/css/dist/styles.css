@@ -159,6 +159,8 @@ button {
 .masthead {
   padding-bottom: 1.25rem;
   border-bottom: var(--rule-ink);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .masthead__top {
@@ -411,6 +413,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--ink-soft);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .section-runner__next {
@@ -936,6 +940,8 @@ button {
   border: 1px solid var(--phosphor-dark);
   position: relative;
   overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .meta-block::before {
@@ -946,6 +952,7 @@ button {
   background-image: linear-gradient(rgba(43, 182, 115, 0.06) 1px, transparent 1px);
   background-size: 100% 3px;
   mix-blend-mode: screen;
+  clip-path: inset(0);
 }
 
 .meta-block dl {
@@ -970,7 +977,7 @@ button {
 .meta-block__head {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 0.85rem;
   padding-bottom: 0.55rem;
   border-bottom: 1px dashed rgba(43, 182, 115, 0.35);
@@ -1033,7 +1040,8 @@ button {
   box-shadow:
     10px 10px 0 -1px var(--ink),
     10px 10px 0 0 var(--paper-edge);
-  overflow: hidden;
+  width: 100%;
+  min-width: 0;
 }
 
 .figure-print__caption-top {
