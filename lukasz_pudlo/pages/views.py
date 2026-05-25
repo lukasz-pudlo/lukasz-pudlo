@@ -5,11 +5,17 @@ PROJECTS = [
     {
         "slug": "acorn-pay",
         "title": "Acorn Pay",
-        "strapline": "Race-entry payments, receipts, and operational tooling.",
+        "strapline": "Work-in-progress race-entry payments, receipts, and operational tooling.",
+        "status": "Work in progress",
         "embed_url": "https://dev.acornpay.southbyfive.run/",
+        "embed_note": (
+            "The live exhibit shows the Acorn Pay main page inside this case study. "
+            "Account creation and sign-in need third-party cookies that browsers often block inside "
+            "iframes, so open the live site directly to create an account or sign in."
+        ),
         "summary": (
-            "A Django payment system for a small race organisation, built around Stripe Checkout, "
-            "email receipts, and replay-safe webhooks."
+            "A work-in-progress Django payment system for a small race organisation, built around "
+            "Stripe Checkout, email receipts, and replay-safe webhooks."
         ),
         "role": "Architecture, Django implementation, deployment, payment flows",
     },
